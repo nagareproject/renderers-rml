@@ -1,10 +1,10 @@
 # Encoding: UTF-8
 # --
-# Copyright (c) 2008-2018 Net-ng.
+# Copyright (c) 2008-2019 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
-# the file LICENSE.trt, which you should have received as part of
+# the file LICENSE.txt, which you should have received as part of
 # this distribution.
 # --
 

@@ -69,8 +69,8 @@ class Renderer(xml.XmlRenderer):
     _parser = etree.XMLParser()
     _parser.set_element_class_lookup(etree.ElementDefaultClassLookup(element=Tag))
 
-    def __init__(self, parent=None):
-        super(Renderer, self).__init__(parent)
+    def __init__(self, parent=None, *args, **kw):
+        super(Renderer, self).__init__(parent, *args, **kw)
 
         self.namespaces = {None: self.namespace}
 

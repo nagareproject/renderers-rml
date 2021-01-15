@@ -75,11 +75,19 @@ class Renderer(xml.XmlRenderer):
         self.namespaces = {None: self.namespace}
 
     @classmethod
-    def create_RML_tags(cls, tag='document', signature=document.IDocument):
-        setattr(cls, tag, xml.TagProp(tag, set(schema.getFields(signature))))
+    def get_tags(cls, tags, tag, signature):
+        if tag not in tags:
+            tags[tag] = set(schema.getFields(signature))
 
-        for child in signature.queryTaggedValue('directives', ()):
-            cls.create_RML_tags(child.tag, child.signature)
+            for child in signature.queryTaggedValue('directives', ()):
+                cls.get_tags(tags, child.tag, child.signature)
+
+        return tags
+
+    @classmethod
+    def create_RML_tags(cls):
+        for tag, signature in cls.get_tags({}, 'document', document.IDocument).items():
+            setattr(cls, tag, xml.TagProp(tag, signature))
 
     @classmethod
     def create_para_extra_tags(cls):

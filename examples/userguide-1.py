@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -67,13 +67,19 @@ def sample(output):
                     r << r.drawCentredString('Rect - with fill, but no stroke.', x=297.5, y=199.1)
                     r << r.drawCentredString('Rect - with both stroke and fill.', x=467.5, y=199.1)
 
-                    r << r.rect(x=84.5, y=56.5, width='1 in', height='1.15 in', fill='no', stroke='yes', round='0.15 in')
+                    r << r.rect(
+                        x=84.5, y=56.5, width='1 in', height='1.15 in', fill='no', stroke='yes', round='0.15 in'
+                    )
                     r << r.fill(color='green')
                     r << r.stroke(color='black')
-                    r << r.rect(x=254.5, y=56.5, width='1 in', height='1.15 in', fill='yes', stroke='no', round='0.15 in')
+                    r << r.rect(
+                        x=254.5, y=56.5, width='1 in', height='1.15 in', fill='yes', stroke='no', round='0.15 in'
+                    )
                     r << r.fill(color='blue')
                     r << r.stroke(color='black')
-                    r << r.rect(x=424.5, y=56.5, width='1 in', height='1.15 in', fill='yes', stroke='yes', round='0.15 in')
+                    r << r.rect(
+                        x=424.5, y=56.5, width='1 in', height='1.15 in', fill='yes', stroke='yes', round='0.15 in'
+                    )
                     r << r.fill(color='black')
                     r << r.drawCentredString('Rect - with stroke and round, but no fill.', x=127.5, y=41.25)
                     r << r.drawCentredString('Rect - with fill and round, but no stroke.', x=297.5, y=41.25)

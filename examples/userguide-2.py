@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -20,7 +20,7 @@ def sample(output):
                 with r.pageGraphics:
                     r << r.fill(color='red')
                     r << r.setFont(name='Helvetica', size=24)
-                    r << r. drawCentredString('Lines in RML.', x=297.5, y=800)
+                    r << r.drawCentredString('Lines in RML.', x=297.5, y=800)
 
                     r << r.lineMode(width=1)
                     r << r.lines('1in 10.5in 2in 10.5in 2in 10.5in 1.5in 10in 1.5in 10in 1.5in 10.75in')

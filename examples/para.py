@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -25,10 +25,13 @@ def sample(output):
                         r << r.param('0,0,1,1', name='Rect')
                         r << r.param(3, name='F')
                         r << r.param(6, name='escape')
-                        r << '''X::PDF
+                        (
+                            r
+                            << '''X::PDF
                         PX(S)
                         MT(PINK)
                         '''
+                        )
                 r << r.frame(id='first', x1='1in', y1='1in', width='6.27in', height='9.69in')
 
         with r.stylesheet:
@@ -37,25 +40,51 @@ def sample(output):
 
             r << r.paraStyle(name='h1', fontName='Helvetica-BoldOblique', fontSize=32, leading=36)
             r << r.paraStyle(name='normal', fontName='Helvetica', fontSize=10, leading=12)
-            r << r.paraStyle(name='spaced', fontName='Helvetica', fontSize=10, leading=12, spaceBefore=12, spaceAfter=12)
+            r << r.paraStyle(
+                name='spaced', fontName='Helvetica', fontSize=10, leading=12, spaceBefore=12, spaceAfter=12
+            )
 
         with r.story:
             with r.para(style='normal'):
                 r << u'Il était là. Hello World.  This is a normal paragraph. Blah '
                 r << r.font('IPO ', color='red')
                 r << 'blah blah blah blah growth forecast blah '
-                r << 'blah blah forecast blah.Blah blah blah blah blah blah blah blah blah blah blah profit blah blah blah blah blah '
-                r << 'blah blah blah blah blah IPO.Blah blah blah blah blah blah blah reengineering blah growth blah blah blah '
-                r << 'proactive direction strategic blah blah blah forward-thinking blah.Blah blah doubletalk blah blah blah blah '
-                r << 'blah profit blah blah growth blah blah blah blah blah profit.Blah blah blah blah venture capital blah blah blah '
+                (
+                    r
+                    << 'blah blah forecast blah.Blah blah blah blah blah blah blah blah blah blah blah profit blah blah blah blah blah '
+                )
+                (
+                    r
+                    << 'blah blah blah blah blah IPO.Blah blah blah blah blah blah blah reengineering blah growth blah blah blah '
+                )
+                (
+                    r
+                    << 'proactive direction strategic blah blah blah forward-thinking blah.Blah blah doubletalk blah blah blah blah '
+                )
+                (
+                    r
+                    << 'blah profit blah blah growth blah blah blah blah blah profit.Blah blah blah blah venture capital blah blah blah '
+                )
                 r << 'blah blah forward-thinking blah.'
 
             with r.para(style='normal'):
                 r << 'This is another normal paragraph. Blah IPO blah blah blah blah growth forecast blah '
-                r << 'blah blah forecast blah.Blah blah blah blah blah blah blah blah blah blah blah profit blah blah blah blah blah '
-                r << 'blah blah blah blah blah IPO.Blah blah blah blah blah blah blah reengineering blah growth blah blah blah '
-                r << 'proactive direction strategic blah blah blah forward-thinking blah.Blah blah doubletalk blah blah blah blah '
-                r << 'blah profit blah blah growth blah blah blah blah blah profit.Blah blah blah blah venture capital blah blah blah '
+                (
+                    r
+                    << 'blah blah forecast blah.Blah blah blah blah blah blah blah blah blah blah blah profit blah blah blah blah blah '
+                )
+                (
+                    r
+                    << 'blah blah blah blah blah IPO.Blah blah blah blah blah blah blah reengineering blah growth blah blah blah '
+                )
+                (
+                    r
+                    << 'proactive direction strategic blah blah blah forward-thinking blah.Blah blah doubletalk blah blah blah blah '
+                )
+                (
+                    r
+                    << 'blah profit blah blah growth blah blah blah blah blah profit.Blah blah blah blah venture capital blah blah blah '
+                )
                 r << 'blah blah forward-thinking blah.'
 
             r << r.para('I should NOT have a tiny leading space in front of me!', style='normal')
@@ -64,10 +93,22 @@ def sample(output):
 
             with r.para(style='normal'):
                 r << 'Hello World.  This is a normal paragraph. Blah IPO blah blah blah blah growth forecast blah '
-                r << 'blah blah forecast blah.Blah blah blah blah blah blah blah blah blah blah blah profit blah blah blah blah blah '
-                r << 'blah blah blah blah blah IPO.Blah blah blah blah blah blah blah reengineering blah growth blah blah blah '
-                r << 'proactive direction strategic blah blah blah forward-thinking blah.Blah blah doubletalk blah blah blah blah '
-                r << 'blah profit blah blah growth blah blah blah blah blah profit.Blah blah blah blah venture capital blah blah blah '
+                (
+                    r
+                    << 'blah blah forecast blah.Blah blah blah blah blah blah blah blah blah blah blah profit blah blah blah blah blah '
+                )
+                (
+                    r
+                    << 'blah blah blah blah blah IPO.Blah blah blah blah blah blah blah reengineering blah growth blah blah blah '
+                )
+                (
+                    r
+                    << 'proactive direction strategic blah blah blah forward-thinking blah.Blah blah doubletalk blah blah blah blah '
+                )
+                (
+                    r
+                    << 'blah profit blah blah growth blah blah blah blah blah profit.Blah blah blah blah venture capital blah blah blah '
+                )
                 r << 'blah blah forward-thinking blah.'
 
     return r.root.topdffile(output)

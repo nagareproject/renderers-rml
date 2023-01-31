@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -7,17 +7,16 @@
 # this distribution.
 # --
 
-"""RML renderer"""
+"""RML renderer."""
 
 from lxml import etree
-from zope import schema
-from z3c.rml import document
 from nagare.renderers import xml
 from reportlab.platypus.para import Para
+from z3c.rml import document
+from zope import schema
 
 
 class DummyFile(object):
-
     def __init__(self):
         self.content = ''
 
@@ -32,7 +31,6 @@ class DummyFile(object):
 
 
 class Tag(xml.Tag):
-
     def init(self, renderer):
         super(Tag, self).init(renderer)
 

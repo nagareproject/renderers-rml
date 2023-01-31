@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -16,15 +16,15 @@ def sample(output):
 
     with r.document:
         with r.template(
-                pageSize='(21cm, 29.7cm)',
-                leftMargin='2.5cm',
-                rightMargin='2.5cm',
-                topMargin='2.5cm',
-                bottomMargin='2.5cm',
-                title='Example 5 - templates and pageTemplates',
-                author='Reportlab Inc (Documentation Team)',
-                showBoundary=1,
-                allowSplitting=1
+            pageSize='(21cm, 29.7cm)',
+            leftMargin='2.5cm',
+            rightMargin='2.5cm',
+            topMargin='2.5cm',
+            bottomMargin='2.5cm',
+            title='Example 5 - templates and pageTemplates',
+            author='Reportlab Inc (Documentation Team)',
+            showBoundary=1,
+            allowSplitting=1,
         ):
             with r.pageTemplate(id='main'):
                 r << r.pageGraphics
@@ -38,7 +38,9 @@ def sample(output):
                 r << r.name(id='ColumnOneHeader', value='This is Column One')
                 r << r.name(id='ColumnTwoHeader', value='This is Column Two')
 
-            r << r.paraStyle(name='titleBox', fontName='Helvetica-Bold', fontSize=18, spaceBefore='0.4 cm', alignment='CENTER')
+            r << r.paraStyle(
+                name='titleBox', fontName='Helvetica-Bold', fontSize=18, spaceBefore='0.4 cm', alignment='CENTER'
+            )
             r << r.paraStyle(name='body', fontName='Helvetica', fontSize=10, leftIndent=5, spaceAfter=5)
 
         with r.story:

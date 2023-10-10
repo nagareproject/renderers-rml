@@ -11,5 +11,6 @@
 
 tests:
   script:
+    - pip install ruff
     - ruff format src
     - ruff src

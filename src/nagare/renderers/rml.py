@@ -37,6 +37,7 @@ class Tag(xml.Tag):
         self.sourceline = 1
 
     def topdffile(self, filename):
+        # Todo: herited class from `document.Document` to overwrite `_initCanvas`
         def init_canvas(doc, init_canvas, canvas, filename):
             if not doc.postProcessors:
                 canvas._filename = filename
@@ -46,7 +47,7 @@ class Tag(xml.Tag):
         doc = document.Document(self)
         doc._initCanvas = lambda canvas, f=doc._initCanvas: init_canvas(doc, f, canvas, filename)
 
-        with (open(filename, 'w') if doc.postProcessors else DummyFile()) as output_file:
+        with open(filename, 'w') if doc.postProcessors else DummyFile() as output_file:
             doc.process(output_file)
 
     def topdfstring(self):
@@ -59,7 +60,6 @@ class Tag(xml.Tag):
 
 
 class Renderer(xml.XmlRenderer):
-
     doctype = '<!DOCTYPE document SYSTEM "rml.dtd">'
     content_type = 'application/pdf'
     namespace = 'http://namespaces.zope.org/rml'
